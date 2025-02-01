@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <title>Mi amor</title>
   <link rel="stylesheet" href="./style.css">
+  <script src='https://code.createjs.com/1.0.0/easeljs.min.js'></script>
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
+<canvas id="testCanvas"></canvas>
+
 <div class="envelope">
 
 	<div class="envelope-inner">
@@ -32,16 +34,16 @@
 
 			<div class="letter">
 
-				
+
 				<img src="assets/Love3.png" alt="love1" class="custom-image">
-			
+
 				<p>Felices 4 meses mi amor! <span class="highlight">Te amo demasiado!</span></p>
-			
-				
+
+
 				<img src="assets/love4.png" alt="love2" class="custom-image2">
-			
+
 			</div>
-			
+
 		</div>
 	</div>
 
@@ -54,20 +56,14 @@
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		const audio = document.getElementById("myAudio");
-
-		// Intentar reproducir el audio de inmediato
 		audio.play().catch(() => {
 			console.log("Autoplay bloqueado, esperando interacción del usuario...");
 		});
-
-		// Si el navegador lo bloquea, intentamos cada segundo
 		setTimeout(() => {
 			audio.play().catch(() => {
 				console.log("Reintento fallido, esperando interacción...");
 			});
 		}, 1000);
-
-		// Agregar un evento para desbloquear el audio al hacer clic en cualquier parte de la página
 		document.addEventListener("click", () => {
 			audio.play().then(() => {
 				console.log("Audio desbloqueado y reproduciéndose");
@@ -75,7 +71,6 @@
 		}, { once: true });
 	});
 </script>
-
-
+    <script src="script.js"></script>
 </body>
 </html>
